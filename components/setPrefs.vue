@@ -38,8 +38,8 @@ const printTrips = async (trips) => {
             // Convert trip.date to the correct format, DD/MM
 
             const tripDate = new Date(trip.date).toLocaleDateString('fr-FR', {
-            day: '2-digit',
-            month: '2-digit',
+                day: '2-digit',
+                month: '2-digit',
             });
 
             const tripFrom = trip.from.split(' - ')[0];
@@ -59,8 +59,8 @@ const printTrips = async (trips) => {
         if (trips.length > 10) {
             trips.slice(10, 20).forEach((trip, index) => {
                 const tripDate = new Date(trip.date).toLocaleDateString('fr-FR', {
-                day: '2-digit',
-                month: '2-digit',
+                    day: '2-digit',
+                    month: '2-digit',
                 });
 
                 const tripFrom = trip.from.split(' - ')[0];
@@ -89,15 +89,16 @@ const printTrips = async (trips) => {
 
 <template>
     <div class="prefsContainer">
-            <UFormGroup label="Gare 1">
-                <USelectMenu v-model="stations[0]" :options="availableStations.default" searchable />
-            </UFormGroup>
-            <UFormGroup label="Gare 2">
-                <USelectMenu v-model="stations[1]" :options="availableStations.default" searchable />
-            </UFormGroup>
+        <UFormGroup label="Gare 1">
+            <USelectMenu v-model="stations[0]" :options="availableStations.default" searchable />
+        </UFormGroup>
+        <UFormGroup label="Gare 2">
+            <USelectMenu v-model="stations[1]" :options="availableStations.default" searchable />
+        </UFormGroup>
 
 
-        <UButton @click="() => latestTrips.push({ from: stations[0], to: stations[1], date: new Date(), time: '' })" icon="i-heroicons-plus-20-solid">
+        <UButton @click="() => latestTrips.push({ from: stations[0], to: stations[1], date: new Date(), time: '' })"
+            icon="i-heroicons-plus-20-solid">
             Ajouter un trajet
         </UButton>
 
@@ -118,5 +119,16 @@ const printTrips = async (trips) => {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    background: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+@media (max-width: 600px) {
+    .prefsContainer {
+        width: 90vw;
+    }
 }
 </style>

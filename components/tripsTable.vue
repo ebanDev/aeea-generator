@@ -56,3 +56,23 @@ const loadTrips = (row) => {
         </UTable>
     </client-only>
 </template>
+
+<style>
+table {
+    background: #f5f5f5;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 600px) {
+    table {
+        display: block;
+        overflow-x: scroll;
+        max-width: 90vw;
+
+        td {
+            min-width: 150px;
+        }
+    }
+}
+</style>
